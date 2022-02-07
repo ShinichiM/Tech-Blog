@@ -23,6 +23,14 @@ User.init({
     }
 }, 
 {
+    hooks: {
+        async beforeCreate(newUserData) {
+            newUserData.password = bcrypt.hash(newUserData, 10);
+        },
+        async beforeUpdate(updatedUserData) {
+            updatedUserData.password = bcrypt.hash(updatedUserData, 10);
+        }
+    },
     sequelize,
     freezeTableName: true,
     underscored: true,

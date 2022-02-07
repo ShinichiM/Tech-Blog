@@ -41,6 +41,16 @@
   p {
     font-size: 1.2rem;
   }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    font-size: 1.2rem;
+    margin: 0 20px 0 0;
+  } 
   
    .btn {
     font-size: 1.3rem;
@@ -197,8 +207,11 @@
   .text-uppercase {
     text-transform: uppercase;
   }
-  
-  
+ 
+  .w-25 {
+    width: 25%
+  } 
+
   /* FLEX CONTENT */
   .flex-row {
     display: flex;
