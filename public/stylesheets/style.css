@@ -6,7 +6,11 @@
     --dark: #38302e;
     --border-radius: .3rem;
   }
-  
+ 
+  .light-font {
+    color: var(--primary);
+
+  }
   * {
     box-sizing: border-box;
   }
@@ -103,7 +107,7 @@
   }
   
   .hero {
-    padding: 3% 4%;
+    padding: 1% 1%;
     background-color: var(--dark);
     color: var(--primary);
   }
@@ -111,7 +115,15 @@
   .hero p {
     max-width: 75%;
   }
-  
+
+  .border {
+    border: 2px solid var(--dark);
+  } 
+
+  .margin-bottom {
+    margin-bottom: 1%; 
+  }
+
   .app-title {
     font-size: 3rem;
     background-color: var(--primary);
