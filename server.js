@@ -27,7 +27,7 @@ app.set('view engine', 'handlebars');
 const PORT = process.env.PORT || 3001;
 const routes = require('./controllers');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

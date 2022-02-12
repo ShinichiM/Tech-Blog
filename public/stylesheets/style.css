@@ -223,7 +223,15 @@
   .w-25 {
     width: 25%
   } 
-
+  .w-50 {
+    width: 50%
+  }
+  .w-75 {
+    width: 75%
+  }
+  .inner {
+    margin: 0 auto;
+  }
   /* FLEX CONTENT */
   .flex-row {
     display: flex;
