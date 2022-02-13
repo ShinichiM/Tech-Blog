@@ -24,27 +24,8 @@ async function loginFormHandler (event) {
     }
 };
 
-async function signupRedirect(event) {
-    event.preventDefault();
-    console.log('clicked')
-    document.location.replace('/signup');
-    const response = await fetch('/signup', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-
-    if (response.ok) {
-        document.location.replace('/login')
-    } else {
-        alert(response.statusText);
-    };
-};
-
 async function signupFormHandler(event) {
 
 };
 
 document.querySelector('#loginForm').addEventListener('submit', loginFormHandler);
-document.querySelector('#signup').addEventListener('click', signupRedirect);
