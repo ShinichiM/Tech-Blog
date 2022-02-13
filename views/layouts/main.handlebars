@@ -7,19 +7,19 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-  <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <title></title>
 </head>
 
 <body class="flex-column min-100-vh">
   <header class="hero">
       <nav class="justify-space-between">
-        <ul class="flex-row">
-          <li>Home</li>
-          <li>Dashboard</li>
-          <li>Login</li>
-          <li>Logout</li>
-        </ul>
+        {{#if loggedIn}}
+        <a href="/dashboard">Dashboard</a>
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
       </nav>
     <h1 class="app-title">The Tech Blog</h1>
   </header>
@@ -27,7 +27,11 @@
 
   <main class="">
     {{{ body }}}
-  </main>
+  </main> 
+  {{!-- <script src="/javascript/homepage.js"></script> --}}
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
