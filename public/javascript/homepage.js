@@ -31,5 +31,5 @@ async function homeRedirect (event) {
     }
 }
 
-document.querySelector('#login').addEventListener('click', loginRedirect);
-document.querySelector('#home').addEventListener('click', homeRedirect);
+// document.querySelector('#login').addEventListener('click', loginRedirect);
+// document.querySelector('#home').addEventListener('click', homeRedirect);
