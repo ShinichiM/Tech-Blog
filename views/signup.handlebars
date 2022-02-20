@@ -1,17 +1,27 @@
 <div class="">
-    <div class="border w-75 inner">
-        <h3 class="hero">Signup</h3>
-        <div>
-            <form class="flex-column justify-space-between" id="loginForm">
-                <label for="signup-username">Username</label>
-                <input type="text" id="signup-username" name="username" />
-                <label for="signup-password">Password</label>
-                <input type="text" id="signup-password" name="password" />
-                <button class="btn" type="submit">Signup</button>
-            </form>
-        </div>
+  <div class="border w-75 inner">
+    <h3 class="hero">Signup</h3>
+    <div>
+      <form class="flex-column justify-space-between" id="loginForm">
+        <label for="signup-username" class="form-label">Username</label>
+        <input
+          type="text"
+          id="signup-username"
+          name="username"
+          class="form-input"
+        />
+        <label for="signup-password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="signup-password"
+          name="password"
+          class="form-input"
+        />
+        <button class="btn" type="submit">Signup</button>
+      </form>
+      <span><a href="/login" class="btn-back">Login Instead</a></span>
     </div>
+  </div>
 </div>
 
 <script src="/javascript/signup.js"></script>
-{{!-- <script src="/javascript/signup.js"></script> --}}

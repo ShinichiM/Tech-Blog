@@ -3,7 +3,7 @@
     <div class="hero">
         <div id="post-title" class="flex-row justify-space-between">
             <h2 class="light-font">{{post.title}}</h2>
-            <span>{{post.user.username}}</span> 
+            <span>Posted by {{post.user.username}} on {{format_date post.createdAt}}</span> 
         </div>
     </div>
     <div>
