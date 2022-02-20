@@ -222,6 +222,15 @@ a:visited {
   min-width: 100vw;
 }
 
+/* DISPLAY UTILS */
+.hidden {
+  visibility: hidden; 
+}
+
+.visible {
+  visiblity: visible;
+}
+
 /* FONT UTILS */
 .text-uppercase {
   text-transform: uppercase;
