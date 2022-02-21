@@ -18,6 +18,21 @@ router.post('/', (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
+router.put('/:id', (req, res) => {
+    Comment.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbCommentData => {
+            if(!dbCommentData) {
+                res.status(400).json({ message: "No comment with that id"})
+            }
+            res.json(dbCommentData);
+        })
+        .catch(err => res.status(500).json(err));
+});
+
 router.delete('/:id', (req, res) => {
     Comment.destroy({
         where: {

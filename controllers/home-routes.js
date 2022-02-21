@@ -12,17 +12,24 @@ router.get("/", (req, res) => {
         },
         {
             model: Comment,
-            attributes: ['comment_text', 'user_id'] 
+            attributes: ['comment_text'],
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ] 
         }
     ],
   })
     .then((postData) => {
       const posts = postData.map((post) => post.get({ plain: true }));
 
-        console.log(String(posts[0].createdAt))
+        // console.log(String(posts[0].createdAt))
+        console.log(posts);
       console.log(
         "----------------------------------",
-        posts,
+        posts[1].comments,
         "----------------------------------"
       );
       res.render("homepage", { posts, loggedIn: req.session.loggedIn });
