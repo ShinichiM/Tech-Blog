@@ -1,17 +1,14 @@
-async function postClickHandler(event) {
-    event.preventDefault();
 
-    console.log('Yo you clicked me');
-    const state = document.querySelector('#comment').getAttribute('state');
-    if (state === 'off') {
-        document.querySelector('#comment').setAttribute('class', 'visible');
-        document.querySelector('#comment').setAttribute('state', 'on');
+$(document).ready((event) => {
+  $("*#post").click(function () {
+    var state = $(this).find("#comment").attr("state");
+    console.log(state);
+    if (state === "off") {
+      $(this).find("#comment").removeClass("hidden").addClass("visible");
+      $(this).find("#comment").attr("state", "on");
     } else {
-        document.querySelector('#comment').setAttribute('class', 'hidden'); 
-        document.querySelector('#comment').setAttribute('state', 'off');
+      $(this).find("#comment").removeClass("visible").addClass("hidden");
+      $(this).find("#comment").attr("state", "off");
     }
-}
-
-document.querySelectorAll('#post').forEach(item => {
-    item.addEventListener('click', postClickHandler) 
+  });
 });

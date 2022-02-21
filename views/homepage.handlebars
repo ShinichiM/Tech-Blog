@@ -1,20 +1,28 @@
 {{#each posts as |post|}}
-<div class="border margin-bottom" id="post">
-    <div class="hero">
-        <div class="flex-row justify-space-between">
-            <h2 class="light-font">{{post.title}}</h2>
-            <span>Posted by {{post.user.username}} on {{format_date post.createdAt}}</span> 
+  <div class="border margin-bottom" id="post" state={{post.id}}> 
+        <div class="hero">
+            <div class="flex-row justify-space-between">
+                <h2 class="light-font">{{post.title}}</h2>
+                <span>Posted by
+                <span class="text-italic">{{post.user.username}}</span>
+                on
+                {{format_date post.createdAt}}</span>
+            </div>
+        </div>
+        <div class="margin-left">
+            {{post.content}}
+        </div>
+    <div class="hidden" id="comment" state="off">
+        <div class="flex-row margin-left"> 
+            <form class="w-75" id="comment-form">
+                <label class="form-label">Comment</label>
+                <textarea type="class" class="form-input" id="comment-text"></textarea>
+                <button class="btn" type="submit">Comment!</button>
+            </form>
         </div>
     </div>
-    <div>
-      {{post.content}} 
-    </div>
-</div>
-<div class="hidden" id="comment" state="off">
-<div>
-    TEST DATA BRO
-</div>
-</div>
+  </div>
 {{/each}}
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/javascript/comment.js"></script>

@@ -131,6 +131,10 @@ a:visited {
   margin-bottom: 1%;
 }
 
+.margin-left {
+  margin-left: 1%;
+}
+
 .app-title {
   font-size: 3rem;
   background-color: var(--primary);
@@ -224,16 +228,22 @@ a:visited {
 
 /* DISPLAY UTILS */
 .hidden {
+  display: none;
   visibility: hidden; 
 }
 
 .visible {
+  display: block;
   visiblity: visible;
 }
 
 /* FONT UTILS */
 .text-uppercase {
   text-transform: uppercase;
+}
+
+.text-italic {
+  font-style: italic;
 }
 
 .w-25 {

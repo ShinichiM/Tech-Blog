@@ -4,7 +4,7 @@ const parseDateTime = require('../utilities/parseDateTime.js');
 
 router.get("/", (req, res) => {
   Post.findAll({
-    attributes: ["title", "content", "createdAt"],
+    attributes: ["title", "content", "createdAt", "id"],
     include: {
       model: User,
       attributes: ["username"],
