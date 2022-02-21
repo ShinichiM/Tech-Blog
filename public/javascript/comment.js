@@ -1,4 +1,3 @@
-
 $(document).ready((event) => {
   $("*#post").click(function () {
     var id = 'comment-'+$(this).attr("post-id");
@@ -18,4 +17,9 @@ async function commentFormHandler() {
 
 };
 
+$(document).ready((event) => {
+  $("*#login-comment").click(function() {
+    document.location.replace('/login');
+  })
+})
 document.querySelector('#comment-form');
