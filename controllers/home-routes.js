@@ -1,14 +1,20 @@
 const router = require("express").Router();
-const { User, Post } = require("../models");
+const { User, Post, Comment } = require("../models");
 const parseDateTime = require('../utilities/parseDateTime.js');
 
 router.get("/", (req, res) => {
   Post.findAll({
     attributes: ["title", "content", "createdAt", "id"],
-    include: {
-      model: User,
-      attributes: ["username"],
-    },
+    include: [
+            {
+        model: User,
+        attributes: ["username"],
+        },
+        {
+            model: Comment,
+            attributes: ['comment_text', 'user_id'] 
+        }
+    ],
   })
     .then((postData) => {
       const posts = postData.map((post) => post.get({ plain: true }));

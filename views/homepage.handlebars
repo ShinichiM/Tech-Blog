@@ -1,6 +1,6 @@
 {{#each posts as |post|}}
-  <div class="border margin-bottom" id="post" state={{post.id}}> 
-        <div class="hero">
+  <div class="border margin-bottom" >
+        <div class="hero" id="post" post-id={{post.id}}>
             <div class="flex-row justify-space-between">
                 <h2 class="light-font">{{post.title}}</h2>
                 <span>Posted by
@@ -12,7 +12,11 @@
         <div class="margin-left">
             {{post.content}}
         </div>
-    <div class="hidden" id="comment" state="off">
+        {{!-- ---------- COMMENT SECTION START -------------- --}}
+    <div class="hidden" id="comment-{{post.id}}" state="off">
+        <div class="flex-row justify-space-between margin-left">
+           {{post.comments.[0].comment_text}} 
+        </div>
         <div class="flex-row margin-left"> 
             <form class="w-75" id="comment-form">
                 <label class="form-label">Comment</label>
@@ -21,6 +25,7 @@
             </form>
         </div>
     </div>
+    {{!-- -------------------- COMMETN SECTION END --------------------- --}}
   </div>
 {{/each}}
 
