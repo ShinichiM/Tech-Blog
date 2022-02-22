@@ -127,6 +127,14 @@ a:visited {
   border: 2px solid var(--dark);
 }
 
+.border-rounded-top {
+  border-radius: ;
+}
+
+.border-rounded-bottom {
+  border-radius: ;
+}
+
 .margin-bottom {
   margin-bottom: 1%;
 }
@@ -229,7 +237,7 @@ a:visited {
 /* DISPLAY UTILS */
 .hidden {
   display: none;
-  visibility: hidden; 
+  visibility: hidden;
 }
 
 .visible {

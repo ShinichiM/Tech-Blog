@@ -1,38 +1,42 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
-const parseDateTime = require('../utilities/parseDateTime.js');
+const parseDateTime = require("../utilities/parseDateTime.js");
 
 router.get("/", (req, res) => {
   Post.findAll({
     attributes: ["title", "content", "createdAt", "id"],
     include: [
-            {
+      {
         model: User,
         attributes: ["username"],
-        },
-        {
-            model: Comment,
-            attributes: ['comment_text'],
-            include: [
-                {
-                    model: User,
-                    attributes: ['username']
-                }
-            ] 
-        }
+      },
+      {
+        model: Comment,
+        attributes: ["comment_text", "createdAt"],
+        include: [
+          {
+            model: User,
+            attributes: ["username"],
+          },
+        ],
+      },
     ],
   })
     .then((postData) => {
       const posts = postData.map((post) => post.get({ plain: true }));
+      // console.log(req.session);
+      console.log(posts);
+      const data = { posts: posts, loggedIn: req.session.loggedIn };
+      console.log(data);
 
-        // console.log(String(posts[0].createdAt))
-        console.log(posts);
-      console.log(
-        "----------------------------------",
-        posts[1].comments,
-        "----------------------------------"
-      );
-      res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+      res.render("homepage", {
+        posts,
+        session: {
+          user_id: req.session.user_id,
+          loggedIn: req.session.loggedIn,
+          username: req.session.username,
+        },
+      });
     })
     .catch((err) => {
       console.log(err);
