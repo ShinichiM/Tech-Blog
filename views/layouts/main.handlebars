@@ -20,7 +20,7 @@
     <header class="hero">
       <nav>
         <ul class="flex-row">
-          {{#if loggedIn}}
+          {{#if session.loggedIn}}
           <li>
             <a href="/">Home</a>
           </li>
@@ -44,7 +44,7 @@
       {{{body}}}
     </main>
     {{! <script src="/javascript/homepage.js"></script> }}
-    {{#if loggedIn}}
+    {{#if session.loggedIn}}
       <script src="/javascript/logout.js"></script>
     {{/if}}
   </body>
