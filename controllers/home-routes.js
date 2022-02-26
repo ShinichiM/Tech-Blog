@@ -56,4 +56,23 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+router.get("/dashboard", (req, res) => {
+  Post.findAll({
+    where: {
+      id: req.session.user_id,
+    },
+  })
+    .then((dbData) => {
+      const posts = dbData.map((post) => post.get({ plain: true }));
+
+      const session = {
+        loggedIn: req.session.loggedIn,
+        user_id: req.session.user_id,
+        username: req.session.username,
+      };
+      res.render("dashboard", { posts, session });
+    })
+    .catch((err) => res.status(500).json(err));
+});
+
 module.exports = router;
