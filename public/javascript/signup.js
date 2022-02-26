@@ -1,25 +1,28 @@
 async function signupFormHandler(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const username = document.querySelector('#signup-username').value.trim();
-    const password = document.querySelector('#signup-password').value.trim();
-    
-    const response = await fetch('/api/users', {
-        method: 'POST',
-        body: JSON.stringify({
-            username,
-            password
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+  const username = document.querySelector("#signup-username").value.trim();
+  const password = document.querySelector("#signup-password").value.trim();
 
-    if (response.ok) {
-        console.log('User created')
-    } else {
-        alert(response.statusText);
-    }
+  const response = await fetch("/api/users", {
+    method: "POST",
+    body: JSON.stringify({
+      username,
+      password,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    console.log("User created");
+    document.location.replace("/");
+  } else {
+    alert(response.statusText);
+  }
 }
 
-document.querySelector('#loginForm').addEventListener('submit', signupFormHandler);
+document
+  .querySelector("#loginForm")
+  .addEventListener("submit", signupFormHandler);

@@ -18,8 +18,10 @@ const sess = {
 
 app.use(session(sess));
 
+const helpers = require('./utilities/parseDateTime');
+
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -29,7 +31,7 @@ const routes = require('./controllers');
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
