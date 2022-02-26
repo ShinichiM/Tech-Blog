@@ -77,7 +77,8 @@ router.get("/dashboard", (req, res) => {
 
 router.get('/post', (req, res) => {
   const session = {
-    user_id: req.session.user_id
+    user_id: req.session.user_id,
+    loggedIn: req.session.loggedIn
   }
   res.render('post', { session });
 })
