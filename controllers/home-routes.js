@@ -59,7 +59,7 @@ router.get("/signup", (req, res) => {
 router.get("/dashboard", (req, res) => {
   Post.findAll({
     where: {
-      id: req.session.user_id,
+      user_id: req.session.user_id,
     },
   })
     .then((dbData) => {

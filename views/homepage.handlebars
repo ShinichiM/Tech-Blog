@@ -2,12 +2,20 @@
   {{#each posts as |post|}}
     <div class="border margin-bottom border-rounded">
       <div class="hero" id="post" post-id={{post.id}}>
-        <div class="flex-row justify-space-between">
-          <h2 class="light-font">{{post.title}}</h2>
-          <span>Posted by
-            <span class="text-italic">{{post.user.username}}</span>
+        <div
+          class="flex-row justify-space-between"
+          data-post-id={{post.id}}
+          state="off"
+        >
+          <h2 class="light-font" data-post-id={{post.id}}>{{post.title}}</h2>
+          <span data-post-id={{post.id}}>Posted by
+            <span
+              class="text-italic"
+              data-post-id={{post.id}}
+            >{{post.user.username}}</span>
             on
-            {{format_date post.createdAt}}</span>
+            {{format_date post.createdAt}}
+          </span>
         </div>
       </div>
       <div class="margin-left">

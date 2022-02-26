@@ -1,3 +1,40 @@
-<div>
-  {{loggedIn}}
+<div class="flex-row justify-flex-end margin-bottom">
+<button class="btn-back"><a href="#">Create a New Post</a></button>
 </div>
+{{#each posts as |post|}} 
+  <div class="list-item flex-row justify-space-between align-center" id="post" post-id={{post.id}}>
+    <h2 class="light-font">{{post.title}}</h2>
+    <span>{{format_date post.createdAt}}</span>
+  </div>
+  {{!-- Update and Delete Form Start --}}
+  <div class="hidden" id="comment-{{post.id}}" state="off">
+      <div class="hero">Edit Post</div>
+    <div class="flex-row justify-center margin-bottom border">
+      <form class="w-75" id="comment-form">
+        <label class="form-label" for="post-title">Title</label>
+        <textarea type="class" class="form-input" id="post-title">{{post.title}}</textarea>
+        <label class="form-label" for="post-content">Content</label>
+        <textarea type="class" class="form-input" id="post-content">{{post.content}}</textarea>
+        <input
+          type="hidden"
+          value="{{@root.session.user_id}}"
+          name="user_id"
+          id="comment_user_id"
+        />
+        <input
+          type="hidden"
+          value="{{post.id}}"
+          name="user_id"
+          id="comment_post_id"
+        />
+        <button class="btn" type="submit" id="post-updated">Update</button>
+        <button class="btn" type="submit" id="post-delete">Delete</button>
+      </form>
+    </div>
+  </div>
+  {{!-- Update and Delete Form End --}}
+{{/each}}
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+></script>
+<script src="/javascript/dashboard.js"></script>
