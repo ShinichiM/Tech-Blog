@@ -75,4 +75,11 @@ router.get("/dashboard", (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
+router.get('/post', (req, res) => {
+  const session = {
+    user_id: req.session.user_id
+  }
+  res.render('post', { session });
+})
+
 module.exports = router;

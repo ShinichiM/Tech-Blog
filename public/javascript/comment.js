@@ -1,8 +1,8 @@
 $(document).ready((event) => {
   $("*#post").click(function () {
-    var id = "comment-" + $(this).attr("post-id");
+    const id = "comment-" + $(this).attr("post-id");
     // console.log(id);
-    var state = $(`#${id}`).attr("state");
+    const state = $(`#${id}`).attr("state");
     if (state === "off") {
       $(`#${id}`).removeClass("hidden").addClass("visible");
       $(`#${id}`).attr("state", "on");
@@ -13,9 +13,9 @@ $(document).ready((event) => {
     $("*#comment-form").submit(function (event) {
       event.preventDefault();
       console.log("--------------", $(this).children());
-      var commentText = $(this).children()[1].value;
-      var userId = $(this).children()[2].value;
-      var postId = $(this).children()[3].value;
+      const commentText = $(this).children()[1].value;
+      const userId = $(this).children()[2].value;
+      const postId = $(this).children()[3].value;
 
       fetch("/api/comments", {
         method: "post",

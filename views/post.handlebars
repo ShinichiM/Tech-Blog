@@ -1,19 +1,15 @@
-<form class="w-75" id="comment-form">
+<form class="w-75" id="create-form">
   <label class="form-label" for="post-title">Title</label>
   <textarea type="class" class="form-input" id="post-title"></textarea>
   <label class="form-label" for="post-content">Content</label>
   <textarea type="class" class="form-input" id="post-content"></textarea>
   <input
     type="hidden"
-    value="{{@root.session.user_id}}"
+    value={{session.user_id}}
     name="user_id"
-    id="comment_user_id"
-  />
-  <input
-    type="hidden"
-    value="{{post.id}}"
-    name="user_id"
-    id="comment_post_id"
+    id="user_id"
   />
   <button class="btn" type="submit" id="comment-submit">New Post</button>
 </form>
+
+<script src="/javascript/post.js"></script>
